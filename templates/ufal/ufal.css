@@ -11,10 +11,10 @@
 
 body { font-size: 0.6831cm; font-family: LatinModern; line-height: 1.2; }
 p { margin-top: 0; margin-bottom: .4em; }
-h1, h2, h3, h4 { font-weight: normal; margin-top: .5em; margin-bottom: .5em; }
+h1, h2, h3, h4 { font-weight: bold; margin-top: .7cm; margin-bottom: .2em }
 h1 { font-size: 1.5em; } h2 { font-size: 1.33em; } h3 { font-size: 1.1em } h4 { font-size: 1em }
 ul, ol { margin-top: .5em; margin-bottom: .5em; }
-ul ul, ul ol, ol ul, ol ol { margin-top: 0; }
+ul ul, ul ol, ol ul, ol ol, h1 + ul, h1 + ol, h2 + ul, h2 + ol, h3 + ul, h3 + ol, h4 + ul, h4 + ol { margin-top: 0; }
 li p + ul, li p + ol { margin-top: -.5em; }
 code, pre { font-family: LatinModernMono; margin-top: .5em; margin-bottom: .5em }
 .katex { font-size: 1.1em; }
