@@ -39,7 +39,7 @@ var slimd = {
     this.images = [];
     this.imagesMap = {};
     this.title = "";
-    var sources = md.split(/\r?\n\s*?(---[ -]*?|~~~[ ~]*?)(?:\r?\n|$)/g);
+    var sources = md.split(/\r?\n(---[ -]*?|~~~[ ~]*?)(?:\r?\n|$)/g);
     for (var i = 0, slide = 1; i < sources.length; i += 2) {
       var source = "";
       if (i) {
