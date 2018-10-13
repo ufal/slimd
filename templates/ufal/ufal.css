@@ -116,6 +116,16 @@ code, pre { font-family: LatinModernMono; margin-top: .5em; margin-bottom: .5em 
   color: #f47b20;
 }
 
+/* Tables */
+table { line-height: 1.5; border-spacing: 0; border-collapse: collapse }
+td, th { padding: .25em; border: 1px solid #999 }
+th { background-color: #e9470080 }
+table tr:nth-of-type(even) {background-color: #ccc8 }
+
+.slimd-slide.tablewide table { width: 100% }
+.slimd-slide.tablehigh table { height: 100% }
+.slimd-slide.tablefull table { width: 100%; height: 100% }
+
 /* Other presentation sizes */
 .slimd-presentation.a4 .slimd-ufal-header { padding: 1cm 1.2cm 1.25cm .55cm; background-image: none }
 .slimd-presentation.a4 .slimd-ufal-content { top: 3.85cm }
