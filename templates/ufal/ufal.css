@@ -52,7 +52,7 @@ code, pre { font-family: LatinModernMono; margin-top: .5em; margin-bottom: .5em 
 }
 .slimd-ufal-footer .slimd-ufal-footer-title { display: inline-block; height: .6cm; padding: .01cm .35cm .09cm .35cm; background-color: #f47b20; }
 .slimd-ufal-footer .slimd-ufal-footer-title p { font-weight: bold; color: #fff; margin: 0 }
-.slimd-ufal-footer .slimd-ufal-footer-section { display: inline-block; height: .6cm; padding: .05cm .5cm .05cm .5cm; vertical-align: middle }
+.slimd-ufal-footer .slimd-ufal-footer-section { display: inline-block; height: .6cm; padding: .05cm .5cm 0 .5cm; }
 .slimd-ufal-footer .slimd-ufal-footer-section p { font-size: .8em; margin: 0; color: #888; }
 .slimd-ufal-footer .slimd-ufal-footer-section-active p { color: #000 !important; }
 .slimd-ufal-footer .slimd-ufal-slide-number { float: right; height: .6cm; padding: .01cm .3cm .09cm .3cm }
