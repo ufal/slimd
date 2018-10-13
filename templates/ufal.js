@@ -23,6 +23,7 @@ var slimd_template = (function(currentScript) {
         // Create elements for header, content and footer
         var header = document.createElement("div"); header.className = "slimd-ufal-header";
         var content = document.createElement("div"); content.className = "slimd-ufal-content";
+        var innerContent = document.createElement("div"); innerContent.className = "slimd-ufal-content-inner";
         var footer = document.createElement("div"); footer.className = "slimd-ufal-footer";
 
         // For non-title slide, interpret first H1 as header title
@@ -43,7 +44,8 @@ var slimd_template = (function(currentScript) {
 
         // Render the title and the content
         if (title) header.innerHTML = slimd.md.render(title)
-        content.innerHTML = slimd.md.render(md)
+        innerContent.innerHTML = slimd.md.render(md)
+        content.appendChild(innerContent);
 
         // Render footer
         if (titleSlide) {
