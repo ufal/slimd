@@ -40,8 +40,7 @@ body { background-color: #d7d8d2; }
 
 /* Image containers */
 .slimd-image-container { display: inline-table; table-layout: fixed; vertical-align: middle; }
-.slimd-image-container>span { display: table-row; }
-.slimd-image-container>span>span { display: table-cell; }
+.slimd-image-container>span { display: table-cell; }
 
 /* Screen blanker */
 @media screen {

@@ -97,11 +97,11 @@ var slimd = {
         if (!url.startsWith("/") && url.search("//") < 0) url = root + url;
         if (!(url in this.imagesMap)) { this.images.push(url);  this.imagesMap[url] = this.images.length; }
         return "<div class='slimd-image-container' style='width:" + args.mw + (args.mh ? ";height:" + args.mh : "") + "'>" +
-          "<span><span style='" + (args.h ? "text-align:" + args.h : "") + (args.v ? ";vertical-align:" + args.v : "") + "'>" +
+          "<span style='" + (args.h ? "text-align:" + args.h : "") + (args.v ? ";vertical-align:" + args.v : "") + "'>" +
           (url.endsWith("pdf")
             ? "<span class='slimd-image-" + this.imagesMap[url] + "' style='display:inline-block;width:" + args.w + ";vertical-align:top'></span>"
             : "<img class='slimd-image-" + this.imagesMap[url] +"' src='" + url + "' style='width:" + args.w + ";vertical-align:top'>") +
-          "</span></span></div>";
+          "</span></div>";
       }.bind(this));
 
       this.slides.push({
