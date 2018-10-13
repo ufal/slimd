@@ -18,9 +18,11 @@ body {
 .slimd-presentation.a4, .slimd-presentation.a4 .slimd-slide { width: 29.7cm; height: 21cm; }
 .slimd-presentation.m43, .slimd-presentation.m43 .slimd-slide { width: 29.7cm; height: 22.275cm; }
 }
+@media print {
 .slimd-slide { width: 29.7cm; height: 16.65625cm; }
 .slimd-presentation.a4 .slimd-slide { width: 29.7cm; height: 20.95cm; }
 .slimd-presentation.m43 .slimd-slide { width: 29.7cm; height: 22.225cm; }
+}
 
 html { font-size: 0.297cm; }
 
