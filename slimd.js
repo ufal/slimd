@@ -234,7 +234,8 @@ var slimd = {
     var fragment = window.location.hash.substr(1);
     var slideMatch = fragment.match(/^\d+/);
     var fragmentSlide = slideMatch ? parseInt(slideMatch[0]) : 1;
-    fragment = fragment.replace(/^\d+/, "");
+    fragment = fragment.replace(/^\d+,*/, "");
+    if (fragment) fragment = "," + fragment;
 
     if (fragment != this.currentFragment) {
       var classes = fragment.split(",").map(x => x.trim()).filter(x => x);
@@ -245,6 +246,8 @@ var slimd = {
     } else if (fragmentSlide != this.currentSlide) {
       this.setSlide(fragmentSlide, +1);
     }
+    var hash = "#" + this.currentSlide.toString() + this.currentFragment;
+    if (hash != window.location.hash) window.location.hash = hash;
   },
 
   setSlide: function(slide, changeDirection) {
