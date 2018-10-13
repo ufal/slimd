@@ -61,7 +61,7 @@ var slimd_template = (function(currentScript) {
             var footerTitle = document.createElement("div"); footerTitle.className = "slimd-ufal-footer-title";
             footerTitle.innerHTML = slimd.md.render(slimd.title);
             footerTitle.style.cursor = "pointer";
-            footerTitle.addEventListener("click", slimd.setSlide.bind(slimd, 1));
+            footerTitle.addEventListener("click", slimd.setSlide.bind(slimd, 1, +1));
             footer.appendChild(footerTitle);
           }
 
@@ -74,7 +74,7 @@ var slimd_template = (function(currentScript) {
               if (slimd.slides[i].section == currentSection) section.className += " slimd-ufal-footer-section-active";
               section.innerHTML = slimd.md.render(slimd.slides[i].section);
               section.style.cursor = "pointer";
-              section.addEventListener("click", (function(slide) { slimd.setSlide(slide); }).bind(this, i + 1));
+              section.addEventListener("click", (function(slide) { slimd.setSlide(slide, +1); }).bind(this, i + 1));
               footer.appendChild(section);
               sections[slimd.slides[i].section] = 1;
             }

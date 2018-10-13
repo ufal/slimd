@@ -138,7 +138,7 @@ var slimd = {
     this.currentSlide = 0;
     this.currentFragment = "";
     this.parseFragment();
-    if (!this.currentSlide) this.setSlide(1);
+    if (!this.currentSlide) this.setSlide(1, +1);
     window.addEventListener("hashchange", this.parseFragment.bind(this));
 
     // Add the presentation
@@ -151,26 +151,26 @@ var slimd = {
     // Create controls
     var self = this;
     window.addEventListener("wheel", function(e) {
-      if (e.deltaY < 0) self.setSlide(self.currentSlide - 1);
-      if (e.deltaY > 0) self.setSlide(self.currentSlide + 1);
+      if (e.deltaY < 0) self.setSlide(self.currentSlide - 1, -1);
+      if (e.deltaY > 0) self.setSlide(self.currentSlide + 1, +1);
     });
     window.addEventListener("keydown", function(e) {
       switch (e.key) {
         case "ArrowLeft":
         case "ArrowUp":
         case "PageUp":
-          self.setSlide(self.currentSlide - 1);
+          self.setSlide(self.currentSlide - 1, -1);
           break;
         case "ArrowRight":
         case "ArrowDown":
         case "PageDown":
-          self.setSlide(self.currentSlide + 1);
+          self.setSlide(self.currentSlide + 1, +1);
           break;
         case "Home":
-          self.setSlide(1);
+          self.setSlide(1, +1);
           break;
         case "End":
-          self.setSlide(self.slides.length);
+          self.setSlide(self.slides.length, -1);
           break;
         case "h":
           self.toggleFragmentElement("handout");
@@ -232,7 +232,8 @@ var slimd = {
 
   parseFragment: function() {
     var fragment = window.location.hash.substr(1);
-    var match = fragment.match(/^\d+/);
+    var slideMatch = fragment.match(/^\d+/);
+    var fragmentSlide = slideMatch ? parseInt(slideMatch[0]) : 1;
     fragment = fragment.replace(/^\d+/, "");
 
     if (fragment != this.currentFragment) {
@@ -240,12 +241,16 @@ var slimd = {
       this.presentation.className = "slimd-presentation" + (classes.length ? " " + classes.join(" ") : "");
       this.currentFragment = fragment;
       this.resizePresentation();
+      this.setSlide(fragmentSlide, +1);
+    } else if (fragmentSlide != this.currentSlide) {
+      this.setSlide(fragmentSlide, +1);
     }
+  },
 
-    var fragmentSlide = match ? parseInt(match[0]) : 0, slide = fragmentSlide || 1;
+  setSlide: function(slide, changeDirection) {
     if (slide >= 1 && slide <= this.slides.length) {
-      if (fragment.search(/(?:^|,)handout(?=,|$)/i) >= 0) {
-        while (slide > 1 && this.slides[slide - 1].hasContinuation) slide += slide >= this.currentSlide ? 1 : -1;
+      if (this.currentFragment.search(/(?:^|,)handout(?=,|$)/i) >= 0) {
+        while (slide > 1 && this.slides[slide - 1].hasContinuation) slide += changeDirection;
         while (this.slides[slide - 1].hasContinuation) slide += 1;
       }
       if (slide != this.currentSlide) {
@@ -253,14 +258,9 @@ var slimd = {
         for (var i = 0; i < visibles.length; i++) visibles[i].classList.remove("slimd-slide-visible");
         this.presentation.getElementsByClassName("slimd-slide")[slide - 1].classList.add("slimd-slide-visible");
         this.currentSlide = slide;
+        window.location.hash = "#" + slide.toString() + this.currentFragment;
       }
-      if (slide != fragmentSlide) this.setSlide(slide);
     }
-  },
-
-  setSlide: function(slide) {
-    if (slide >= 1 && slide <= this.slides.length)
-      window.location.hash = "#" + slide.toString() + this.currentFragment;
   },
 
   toggleFragmentElement: function(element, conflicting) {
