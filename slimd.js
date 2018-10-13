@@ -175,6 +175,9 @@ var slimd = {
         case "h":
           self.toggleFragmentElement("handout");
           break;
+        case "b":
+          self.toggleFragmentElement("backgroundless");
+          break;
         case ".":
           self.toggleFragmentElement("blank");
           break;

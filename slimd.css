@@ -26,7 +26,7 @@ html { font-size: 0.297cm; }
 
 @media screen {
 body { background-color: #d7d8d2; }
-.slimd-presentation { box-shadow: 0px 0px 30px #888; }
+.slimd-presentation { background-color: #fff; box-shadow: 0px 0px 30px #888; }
 .slimd-slide { display: none; }
 .slimd-slide-visible { display: block !important; }
 }

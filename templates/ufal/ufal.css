@@ -22,9 +22,11 @@ code, pre { font-family: LatinModernMono; margin-top: .5em; margin-bottom: .5em 
 /* Backgrounds */
 @media screen {
 .slimd-presentation { background-image: url(images/background.jpg); background-size: 100% 100%; }
+.slimd-presentation.backgroundless { background-image: none; }
 }
 @media print {
 .slimd-slide { background-image: url(images/background.jpg); background-size: 100% 100%; -webkit-print-color-adjust: exact; }
+.slimd-presentation.backgroundless .slimd-slide { background-image: none; }
 }
 
 /* Slide layout */
