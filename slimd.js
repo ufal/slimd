@@ -85,7 +85,7 @@ var slimd = {
 
       // Process advanced image links
       md = md.replace(/!\[(w=[^\]]*)\]\(([^)]*)\)/g, function (match, options, url) {
-        var args = {w: null, mw: null, mh: null, h: null, v: null};
+        var args = {w: null, mw: null, mh: null, h: null, v: null, f: null};
         options = options.split(/,/).map(x => x.split(/=/).map(y => y.trim()));
         for (var i in options) {
           if (options[i].length != 2 || !(options[i][0] in args)) return match;
@@ -96,7 +96,8 @@ var slimd = {
         if (!args.mw) { args.mw = args.w; args.w = "100%"; }
         if (!url.startsWith("/") && url.search("//") < 0) url = root + url;
         if (!(url in this.imagesMap)) { this.images.push(url);  this.imagesMap[url] = this.images.length; }
-        return "<div class='slimd-image-container' style='width:" + args.mw + (args.mh ? ";height:" + args.mh : "") + "'>" +
+        return "<div class='slimd-image-container' style='width:" + args.mw + (args.mh ? ";height:" + args.mh : "") +
+          (args.f ? ";float:" + args.f : "") + "'>" +
           "<span style='" + (args.h ? "text-align:" + args.h : "") + (args.v ? ";vertical-align:" + args.v : "") + "'>" +
           (url.endsWith("pdf")
             ? "<span class='slimd-image-" + this.imagesMap[url] + "' style='display:inline-block;width:" + args.w + ";vertical-align:top'></span>"
