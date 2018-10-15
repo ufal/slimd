@@ -34,7 +34,7 @@ body { background-color: #d7d8d2; }
 }
 @media print {
 .slimd-presentation { transform: none !important }
-.slimd-slide { padding: 0.01cm; page-break-inside: avoid }
+.slimd-slide { page-break-inside: avoid }
 .slimd-presentation.handout .slimd-slide.has-continuation { display: none; }
 }
 
