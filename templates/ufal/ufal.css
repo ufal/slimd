@@ -96,7 +96,7 @@ code, pre { font-family: LatinModernMono; margin-top: .5em; margin-bottom: .5em 
   display: inline-block; vertical-align: top; width: 9cm; padding: .9cm .5cm 0 .5cm;
 }
 .slimd-slide.title .slimd-ufal-footer-school::before {
-  content: "Charles Univeristy in Prague\A Faculty of Mathematics and Physics\A Institute of Formal and Applied Linguistics";
+  content: "Charles University in Prague\A Faculty of Mathematics and Physics\A Institute of Formal and Applied Linguistics";
   white-space: pre;
 }
 .slimd-slide.title .slimd-ufal-footer-license {
