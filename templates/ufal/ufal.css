@@ -87,8 +87,13 @@ code, pre { font-family: LatinModernMono; margin-top: .5em; margin-bottom: .5em 
 .slimd-slide.title .slimd-ufal-footer { top: 13.20625cm; height: 3.5cm; background-color: #dddddd80; }
 .slimd-slide.title .slimd-ufal-footer-logos {
   display: inline-block; vertical-align: middle; width: 14cm; height: 3.5cm;
-  background-image: url(images/cuni.svg), url(images/ufal.svg), url(images/langtech.svg), url(images/opvv.svg);
+  background-image: url(images/cuni.svg), url(images/ufal.svg);
   background-repeat: no-repeat;
+  background-size: 2.2cm 2.2cm, 2.8cm 2.2cm;
+  background-position: .6cm 50%, 3.4cm 50%;
+}
+.slimd-slide.title.langtech .slimd-ufal-footer-logos {
+  background-image: url(images/cuni.svg), url(images/ufal.svg), url(images/langtech.svg), url(images/opvv.svg);
   background-size: 2.2cm 2.2cm, 2.8cm 2.2cm, 3cm 2.2cm, 3.5cm 2.2cm;
   background-position: .6cm 50%, 3.4cm 50%, 6.6cm 50%, 10.2cm 50%;
 }
