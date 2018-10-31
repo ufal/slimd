@@ -99,11 +99,13 @@ code, pre { font-family: LatinModernMono; margin-top: .5em; margin-bottom: .5em 
   content: "Charles University in Prague\A Faculty of Mathematics and Physics\A Institute of Formal and Applied Linguistics";
   white-space: pre;
 }
-.slimd-slide.title .slimd-ufal-footer-license {
+.slimd-slide.title.cc-by-nc-sa .slimd-ufal-footer-license, .slimd-slide.title.cc-by-sa .slimd-ufal-footer-license {
   display: inline-block; vertical-align: top; width: 5cm; height: 1.2cm; padding: 2.3cm 0 0 0; text-align: center;
-  background-image: url(images/by-nc-sa.eu.svg); background-repeat: no-repeat;
-  background-size: 3.42cm 1.2cm; background-position: 50% 1cm;
+  background-repeat: no-repeat; background-size: 3.42cm 1.2cm; background-position: 50% 1cm;
 }
+.slimd-slide.title.cc-by-nc-sa .slimd-ufal-footer-license { background-image: url(images/by-nc-sa.eu.svg) }
+.slimd-slide.title.cc-by-sa .slimd-ufal-footer-license { background-image: url(images/by-sa.svg) }
+
 .slimd-slide.title .slimd-ufal-footer-license::before { content: "unless otherwise stated"; }
 
 /* Image references */
