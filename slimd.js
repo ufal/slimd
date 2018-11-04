@@ -190,6 +190,15 @@ var slimd = {
           break;
       }
     });
+    window.addEventListener("touchstart", function(e) {
+      self.touchStartX = e.touches[0].clientX;
+    });
+    window.addEventListener("touchend", function(e) {
+      if (e.target.nodeName.toUpperCase() == "A") return;
+      var touchEndX = e.changedTouches[0].clientX;
+      if (touchEndX > self.touchStartX + 50) self.setSlide(self.currentSlide - 1, -1);
+      if (touchEndX < self.touchStartX - 50) self.setSlide(self.currentSlide + 1, +1);
+    });
 
     // Load PDFs and image references
     this.pdfWorker = new PDFJS.PDFWorker();
