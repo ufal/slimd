@@ -77,8 +77,8 @@ var slimd = {
             break;
         }
       }
-      if (style) {
-        // Add fences to defined styles
+      if (style && this.slides.length) {
+        // Add fences to styles defined in all but the first slide
         var fence = " #slimd-slide-" + (this.slides.length + 1).toString() + " ";
         style = fence + style.replace(/([},])(?=[^}]*{)/g, "$1" + fence);
       }
