@@ -257,7 +257,7 @@ var slimd = {
       this.setSlide(fragmentSlide, +1);
     }
     var hash = "#" + this.currentSlide.toString() + this.currentFragment;
-    if (hash != window.location.hash) window.location.hash = hash;
+    if (hash != window.location.hash) window.location.replace(hash);
   },
 
   setSlide: function(slide, changeDirection) {
@@ -271,7 +271,7 @@ var slimd = {
         for (var i = 0; i < visibles.length; i++) visibles[i].classList.remove("slimd-slide-visible");
         this.presentation.getElementsByClassName("slimd-slide")[slide - 1].classList.add("slimd-slide-visible");
         this.currentSlide = slide;
-        window.location.hash = "#" + slide.toString() + this.currentFragment;
+        window.location.replace("#" + slide.toString() + this.currentFragment);
       }
     }
   },
@@ -280,7 +280,7 @@ var slimd = {
     var re = new RegExp("(?:^|,)" + element + "(?=,|$)", "gi");
     var fragment = re.test(this.currentFragment) ? this.currentFragment.replace(re, "") : this.currentFragment + "," + element;
     if (conflicting) fragment = fragment.replace(new RegExp("(?:^|,)" + conflicting + "(?=,|$)", "gi"), "");
-    window.location.hash = "#" + this.currentSlide.toString() + fragment;
+    window.location.replace("#" + this.currentSlide.toString() + fragment);
   },
 
   resizePresentation: function() {
