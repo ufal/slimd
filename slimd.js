@@ -201,16 +201,16 @@ var slimd = {
     });
 
     // Load PDFs and image references
-    this.pdfWorker = new PDFJS.PDFWorker();
+    this.pdfWorker = new pdfjsLib.PDFWorker();
     for (var i = 0; i < this.images.length; i++) {
       (function (self, i) {
         // Load PDF
         if (self.images[i].endsWith("pdf"))
-          PDFJS.getDocument({url: self.images[i], worker: self.pdfWorker}).promise.then(function(pdf) {
+          pdfjsLib.getDocument({url: self.images[i], worker: self.pdfWorker}).promise.then(function(pdf) {
             pdf.getPage(1).then(function(page) {
               var viewport = page.getViewport(1.0);
               page.getOperatorList().then(function (opList) {
-                var svgGfx = new PDFJS.SVGGraphics(page.commonObjs, page.objs);
+                var svgGfx = new pdfjsLib.SVGGraphics(page.commonObjs, page.objs);
                 return svgGfx.getSVG(opList, viewport).then(function (svg) {
                   svg.width.baseVal.valueAsString = "100%";
                   svg.height.baseVal.valueAsString = "100%";
