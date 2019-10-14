@@ -42,9 +42,15 @@ var slimd_template = (function(currentScript) {
           }
         }
 
+        // Is this a dangerous bend slide?
+        var dbendSlide = false;
+        for (var i in slimd.slides[slide].classes)
+          dbendSlide = dbendSlide || slimd.slides[slide].classes[i] == "dbend";
+
         // Render the title and the content
         if (title) header.innerHTML = slimd.md.render(title)
-        innerContent.innerHTML = slimd.md.render(md)
+        innerContent.innerHTML =
+          (dbendSlide ? "<img src='" + this.root + "ufal/images/dbend.svg' class='slimd-ufal-dbend'>" : "") + slimd.md.render(md)
         content.appendChild(innerContent);
 
         // Render footer

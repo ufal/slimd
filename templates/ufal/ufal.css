@@ -134,11 +134,10 @@ table tr:nth-of-type(even) {background-color: #ccc8 }
 .slimd-slide.tablefull table { width: 100%; height: 100% }
 
 /* Dangerous bend */
-.slimd-slide.dbend .slimd-ufal-content {
-  background-image: url(images/dbend.svg);
-  background-repeat: no-repeat;
-  background-size: 1.5cm;
-  background-position: right top;
+.slimd-ufal-dbend {
+  float: right;
+  width: 1.5cm;
+  margin-left: .2cm;
 }
 
 /* Other presentation sizes */
