@@ -99,9 +99,7 @@ var slimd = {
         return "<div class='slimd-image-container' style='width:" + args.mw + (args.mh ? ";height:" + args.mh : "") +
           (args.f ? ";float:" + args.f : "") + "'>" +
           "<span style='" + (args.h ? "text-align:" + args.h : "") + (args.v ? ";vertical-align:" + args.v : "") + "'>" +
-          (url.endsWith("pdf")
-            ? "<span class='slimd-image-" + this.imagesMap[url] + "' style='display:inline-block;width:" + args.w + ";vertical-align:top'></span>"
-            : "<img class='slimd-image-" + this.imagesMap[url] +"' src='" + url + "' style='width:" + args.w + ";vertical-align:top'>") +
+          "<img class='slimd-image-" + this.imagesMap[url] +"' src='" + url + "' style='width:" + args.w + ";vertical-align:top'>" +
           "</span></div>";
       }.bind(this));
 
@@ -200,27 +198,9 @@ var slimd = {
       if (touchEndX < self.touchStartX - 50) self.setSlide(self.currentSlide + 1, +1);
     });
 
-    // Load PDFs and image references
-    this.pdfWorker = new pdfjsLib.PDFWorker();
+    // Load image references
     for (var i = 0; i < this.images.length; i++) {
       (function (self, i) {
-        // Load PDF
-        if (self.images[i].endsWith("pdf"))
-          pdfjsLib.getDocument({url: self.images[i], worker: self.pdfWorker}).promise.then(function(pdf) {
-            pdf.getPage(1).then(function(page) {
-              var viewport = page.getViewport(1.0);
-              page.getOperatorList().then(function (opList) {
-                var svgGfx = new pdfjsLib.SVGGraphics(page.commonObjs, page.objs);
-                return svgGfx.getSVG(opList, viewport).then(function (svg) {
-                  svg.width.baseVal.valueAsString = "100%";
-                  svg.height.baseVal.valueAsString = "100%";
-                  var elements = document.getElementsByClassName("slimd-image-" + (i + 1));
-                  for (var e = 0; e < elements.length; e++) elements[e].appendChild(!e ? svg : svg.cloneNode(true));
-                });
-              });
-            });
-          });
-        // Load reference
         var xhr = new XMLHttpRequest();
         xhr.open("GET", self.images[i] + ".ref", true);
         xhr.responseType = "text";
@@ -332,7 +312,6 @@ var slimd = {
                      [this.root + "res/markdown-it/markdown-it.min.js",
                       this.root + "res/highlight/highlight.min.js",
                       this.root + "res/katex/katex.min.js",
-                      this.root + "res/pdfjs/pdf.min.js",
                       template,
                      ],
                      md);

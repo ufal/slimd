@@ -9,7 +9,6 @@ Features:
   - Classes and CSS styles for individual slides
   - KaTeX math
   - Highlight.js
-  - PDF viewing using pdf.js
 - Content is generated natively 16/9, but the whole presentation can be rendered
   in 4/3 or A4 size (by enlarging the layout of headers and footers)
 - General template system
