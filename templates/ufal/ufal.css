@@ -47,7 +47,7 @@ code, pre { font-family: LatinModernMono; margin-top: .5em; margin-bottom: .5em 
   margin-top: 0;
 }
 .slimd-ufal-footer {
-  position: absolute; top: 16.00625cm; width: 29.7cm; height: .7cm;
+  position: absolute; top: 16.00125cm; width: 29.7cm; height: .7cm;
   font-size: .7em;
 }
 .slimd-ufal-footer .slimd-ufal-footer-title { display: inline-block; height: .6cm; padding: .01cm .35cm .09cm .35cm; background-color: #f47b20; }
@@ -84,7 +84,7 @@ code, pre { font-family: LatinModernMono; margin-top: .5em; margin-bottom: .5em 
   background-color: #dddddd80; background-image: url(images/calendar.svg); background-repeat: no-repeat;
   background-size: .87em .8em; background-position: .4em 50%;
 }
-.slimd-slide.title .slimd-ufal-footer { top: 13.20625cm; height: 3.5cm; background-color: #dddddd80; }
+.slimd-slide.title .slimd-ufal-footer { top: 13.20125cm; height: 3.5cm; background-color: #dddddd80; }
 .slimd-slide.title .slimd-ufal-footer-logos {
   display: inline-block; vertical-align: middle; width: 14cm; height: 3.5cm;
   background-image: url(images/cuni.svg), url(images/ufal.svg);
