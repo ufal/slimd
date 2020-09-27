@@ -1,3 +1,3 @@
 # KaTeX
 
-https://github.com/Khan/KaTeX
+https://github.com/KaTeX/KaTeX
