@@ -25,6 +25,7 @@ var slimd = {
       "\\ReLU": "\\mathop{\\operatorname{ReLU}}",
       "\\Var": "\\mathop{\\operatorname{Var}}",
       "\\d": "\\,\\textrm{d}",
+      "\\accuracy": "\\mathrm{accuracy}",
       "\\precision": "\\mathrm{precision}", "\\recall": "\\mathrm{recall}",
       "\\TP": "\\mathit{TP}", "\\FP": "\\mathit{FP}", "\\TN": "\\mathit{TN}", "\\FN": "\\mathit{FN}",
       "𝔸": "\\mathbb{A}", "𝔹": "\\mathbb{B}", "𝔻": "\\mathbb{D}", "𝔼": "\\mathbb{E}", "𝔽": "\\mathbb{F}", "𝔾": "\\mathbb{G}", "𝕀": "\\mathbb{I}", "𝕁": "\\mathbb{J}", "𝕂": "\\mathbb{K}", "𝕃": "\\mathbb{L}", "𝕄": "\\mathbb{M}", "𝕆": "\\mathbb{O}", "𝕊": "\\mathbb{S}", "𝕋": "\\mathbb{T}", "𝕌": "\\mathbb{U}", "𝕍": "\\mathbb{V}", "𝕎": "\\mathbb{W}", "𝕏": "\\mathbb{X}", "𝕐": "\\mathbb{Y}",
