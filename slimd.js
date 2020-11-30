@@ -23,7 +23,7 @@ var slimd = {
       "\\argmin": "\\mathop{\\operatorname{arg\\,min}}\\limits",
       "\\softmax": "\\mathop{\\operatorname{softmax}}",
       "\\ReLU": "\\mathop{\\operatorname{ReLU}}",
-      "\\Var": "\\mathop{\\operatorname{Var}}",
+      "\\Var": "\\mathop{\\operatorname{Var}}", "\\cov": "\\mathop{\\operatorname{cov}}",
       "\\d": "\\,\\textrm{d}",
       "\\accuracy": "\\mathrm{accuracy}",
       "\\precision": "\\mathrm{precision}", "\\recall": "\\mathrm{recall}",
