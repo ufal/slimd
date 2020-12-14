@@ -19,6 +19,7 @@ var slimd = {
       }
     });
     this.md.use(markdownitkatex, {macros: {
+      "\\sign": "\\mathop{\\operatorname{sign}}",
       "\\argmax": "\\mathop{\\operatorname{arg\\,max}}\\limits",
       "\\argmin": "\\mathop{\\operatorname{arg\\,min}}\\limits",
       "\\softmax": "\\mathop{\\operatorname{softmax}}",
