@@ -16,7 +16,7 @@ h1 { font-size: 1.5em; } h2 { font-size: 1.33em; } h3 { font-size: 1.1em } h4 { 
 ul, ol { margin-top: .5em; margin-bottom: .5em; }
 ul ul, ul ol, ol ul, ol ol, h1 + ul, h1 + ol, h2 + ul, h2 + ol, h3 + ul, h3 + ol, h4 + ul, h4 + ol { margin-top: 0; }
 li p + ul, li p + ol { margin-top: -.5em; }
-code, pre { font-family: LatinModernMono; margin-top: .5em; margin-bottom: .5em }
+code, pre { font-family: LatinModernMono; margin-top: .5em; margin-bottom: .5em; color: #333; }
 .katex { font-size: 1.1em; }
 
 /* Backgrounds */
