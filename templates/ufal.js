@@ -1,5 +1,5 @@
 var slimd_template = (function(currentScript) {
-  return function () {
+  return function (css_override) {
     return {
       root: currentScript.src.replace(/\/?[^\/]*$/, "/"),
 
@@ -7,7 +7,7 @@ var slimd_template = (function(currentScript) {
         document.title = slimd.title;
 
         var link = document.createElement("link");
-        link.href = this.root + "ufal/ufal.css";
+        link.href = this.root + "ufal/" + (css_override || "ufal") + ".css";
         link.type = "text/css";
         link.rel = "stylesheet";
         document.head.appendChild(link);

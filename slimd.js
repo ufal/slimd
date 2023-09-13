@@ -123,7 +123,7 @@ var slimd = {
     }
 
     // Create the presentation DOM using the template
-    this.template = slimd_template();
+    this.template = slimd_template.apply(null, this.template_args);
     this.template.init(this);
 
     this.presentation = document.createElement("div");
@@ -313,7 +313,7 @@ var slimd = {
     xhr.send();
   },
 
-  start: function(md, template) {
+  start: function(md, template/*, ...template_args*/) {
     this.loadAndInit([this.root + "res/katex/katex.min.css",
                       this.root + "slimd.css",
                      ],
@@ -323,5 +323,6 @@ var slimd = {
                       template,
                      ],
                      md);
+    this.template_args = Array.prototype.slice.call(arguments, 2);
   },
 }
