@@ -19,6 +19,11 @@ li p + ul, li p + ol { margin-top: -.5em; }
 code, pre { font-family: LatinModernMono; margin-top: .5em; margin-bottom: .5em; color: #333; }
 .katex { font-size: 1.1em; }
 
+/* Print background colors correctly */
+@media print {
+.slimd-slide { -webkit-print-color-adjust: exact; }
+}
+
 /* Slide layout */
 .slimd-ufal-header {
   position: absolute; overflow: hidden; width: 27.95cm; height: 1cm; padding: 0cm 1.5cm .25cm .25cm;
