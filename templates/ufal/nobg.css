@@ -1,0 +1,7 @@
+/* Override to use no backgrounds */
+@media screen {
+.slimd-presentation { background-image: none !important; }
+}
+@media print {
+.slimd-slide { background-image: none !important; }
+}

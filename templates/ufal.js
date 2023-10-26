@@ -1,16 +1,20 @@
 var slimd_template = (function(currentScript) {
-  return function (css_override) {
+  return function (css_overrides) {
     return {
       root: currentScript.src.replace(/\/?[^\/]*$/, "/"),
 
       init: function(slimd) {
         document.title = slimd.title;
 
-        var link = document.createElement("link");
-        link.href = this.root + "ufal/" + (css_override || "ufal") + ".css";
-        link.type = "text/css";
-        link.rel = "stylesheet";
-        document.head.appendChild(link);
+        var links = document.createDocumentFragment()
+        for (var css of (css_overrides || []).concat(["ufal"])) {
+          var link = document.createElement("link");
+          link.href = this.root + "ufal/" + css + ".css";
+          link.type = "text/css";
+          link.rel = "stylesheet";
+          links.append(link);
+        }
+        document.head.appendChild(links);
       },
 
       render: function(slimd, slide, div) {
