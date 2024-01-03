@@ -274,9 +274,9 @@ var slimd = {
   resizePresentation: function() {
     if (!this.presentation.parentNode) return;
 
-    var factor = Math.min(window.innerWidth / this.presentation.offsetWidth, window.innerHeight / this.presentation.offsetHeight);
-    var moveX = (window.innerWidth - this.presentation.offsetWidth) / 2;
-    var moveY = (window.innerHeight - this.presentation.offsetHeight) / 2;
+    var factor = Math.min(document.documentElement.clientWidth / this.presentation.offsetWidth, document.documentElement.clientHeight / this.presentation.offsetHeight);
+    var moveX = (document.documentElement.clientWidth - this.presentation.offsetWidth) / 2;
+    var moveY = (document.documentElement.clientHeight - this.presentation.offsetHeight) / 2;
     this.presentation.style.transform = "translate(" + moveX + "px," + moveY + "px) scale(" + factor + "," + factor + ")";
     this.presentation.style.transformOrigin = "50% 50%";
 
