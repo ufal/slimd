@@ -67,6 +67,16 @@ var slimd = {
       }
       source += sources[i] + "\n";
 
+      // Generate slide id
+      var slideId = slide.toString();
+      if (i + 1 < sources.length && sources[i + 1].startsWith("~~~")) {
+        if (!this.slides.length || this.slides[this.slides.length - 1].number < slide) {
+          slideId = slide + ".1";
+        } else {
+          slideId = slide + "." + (parseInt(this.slides[this.slides.length - 1].id.split(".").pop()) + 1).toString();
+        }
+      }
+
       // Parse allowed "key: value" pairs
       var section = "", classes = [], style="", md = source;
       for (var match; match = md.match(/^(title|section|class|style):([^\n]*?)\r?\n/i); md = md.replace(/^[^\n]*?\n/, "")) {
@@ -87,7 +97,7 @@ var slimd = {
       }
       if (style && this.slides.length) {
         // Add fences to styles defined in all but the first slide
-        var fence = " #slimd-slide-" + (this.slides.length + 1).toString() + " ";
+        var fence = " #slimd-slide-" + slideId + " ";
         style = fence + style.replace(/([},])(?=[^}]*{)/g, "$1" + fence);
       }
 
@@ -113,6 +123,7 @@ var slimd = {
 
       this.slides.push({
         number: slide,
+        id: slideId,
         section: section,
         classes: classes,
         style: style,
@@ -132,7 +143,7 @@ var slimd = {
     for (var i = 0; i < this.slides.length; i++) {
       var slide = document.createElement("div");
       slide.className = "slimd-slide";
-      slide.id = "slimd-slide-" + (i+1).toString();
+      slide.id = "slimd-slide-" + this.slides[i].id;
       if (this.slides[i].hasContinuation) slide.className += " has-continuation";
       if (this.slides[i].classes.length) slide.className += " " + this.slides[i].classes.join(" ");
 
@@ -143,6 +154,7 @@ var slimd = {
 
     // Parse URL fragment
     this.currentSlide = 0;
+    this.currentSlideId = "";
     this.currentFragment = "";
     this.parseFragment();
     if (!this.currentSlide) this.setSlide(1, +1);
@@ -230,9 +242,19 @@ var slimd = {
 
   parseFragment: function() {
     var fragment = window.location.hash.substr(1);
-    var slideMatch = fragment.match(/^\d+/);
-    var fragmentSlide = slideMatch ? parseInt(slideMatch[0]) : 1;
-    fragment = fragment.replace(/^\d+,*/, "");
+    var fragmentSlideId = fragment.match(/^\d+\.?\d*/);
+    var fragmentSlide = 1;
+    if (fragmentSlideId && fragmentSlideId[0] == this.currentSlideId) {
+      fragmentSlide = this.currentSlide;
+    } else if (fragmentSlideId) {
+      for (var i = 0; i < this.slides.length; i++)
+        if (fragmentSlideId[0] == this.slides[i].id) {
+          fragmentSlide = i + 1;
+          break;
+        }
+    }
+    fragmentSlideId = this.slides[fragmentSlide - 1].id;
+    fragment = fragment.replace(/^\d+\.?\d*,*/, "");
     if (fragment) fragment = "," + fragment;
 
     if (fragment != this.currentFragment) {
@@ -241,11 +263,9 @@ var slimd = {
       this.currentFragment = fragment;
       this.resizePresentation();
       this.setSlide(fragmentSlide, +1);
-    } else if (fragmentSlide != this.currentSlide) {
+    } else if (fragmentSlideId != this.currentSlideId) {
       this.setSlide(fragmentSlide, +1);
     }
-    var hash = "#" + this.currentSlide.toString() + this.currentFragment;
-    if (hash != window.location.hash) window.location.replace(hash);
   },
 
   setSlide: function(slide, changeDirection) {
@@ -259,7 +279,8 @@ var slimd = {
         for (var i = 0; i < visibles.length; i++) visibles[i].classList.remove("slimd-slide-visible");
         this.presentation.getElementsByClassName("slimd-slide")[slide - 1].classList.add("slimd-slide-visible");
         this.currentSlide = slide;
-        window.location.replace("#" + slide.toString() + this.currentFragment);
+        this.currentSlideId = this.slides[this.currentSlide - 1].id;
+        window.location.replace("#" + this.currentSlideId + this.currentFragment);
       }
     }
   },
@@ -268,7 +289,7 @@ var slimd = {
     var re = new RegExp("(?:^|,)" + element + "(?=,|$)", "gi");
     var fragment = re.test(this.currentFragment) ? this.currentFragment.replace(re, "") : this.currentFragment + "," + element;
     if (conflicting) fragment = fragment.replace(new RegExp("(?:^|,)" + conflicting + "(?=,|$)", "gi"), "");
-    window.location.replace("#" + this.currentSlide.toString() + fragment);
+    window.location.replace("#" + this.currentSlideId + fragment);
   },
 
   resizePresentation: function() {
