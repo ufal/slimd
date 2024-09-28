@@ -39,7 +39,7 @@ code, pre { font-family: LatinModernMono; margin-top: .5em; margin-bottom: .5em;
   font-size: 1.4em; font-weight: bold; color: #f47b20; margin: 0;
 }
 .slimd-ufal-content {
-  position: absolute; overflow: hidden; top: 1.25cm; width: 27.3cm; height: 13.75625cm; padding: .5cm 1.2cm .5cm 1.2cm;
+  position: absolute; overflow: hidden; top: 1.25cm; width: 27.3cm; height: 13.75125cm; padding: .5cm 1.2cm .5cm 1.2cm;
 }
 .slimd-ufal-content-inner { width: 100%; height: 100% }
 .slimd-ufal-content-inner > h1:first-child, .slimd-ufal-content-inner > h2:first-child,
