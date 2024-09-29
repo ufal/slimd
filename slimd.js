@@ -247,11 +247,16 @@ var slimd = {
     if (fragmentSlideId && fragmentSlideId[0] == this.currentSlideId) {
       fragmentSlide = this.currentSlide;
     } else if (fragmentSlideId) {
-      for (var i = 0; i < this.slides.length; i++)
+      for (var i = 0; i < this.slides.length; i++) {
         if (fragmentSlideId[0] == this.slides[i].id) {
           fragmentSlide = i + 1;
           break;
         }
+        if (i + 1 >= this.slides.length && fragmentSlideId[0].includes(".")) {
+          fragmentSlideId[0] = fragmentSlideId[0].split(".").shift();
+          i = -1;
+        }
+      }
     }
     fragmentSlideId = this.slides[fragmentSlide - 1].id;
     fragment = fragment.replace(/^\d+\.?\d*,*/, "");
