@@ -114,7 +114,8 @@ code, pre { font-family: LatinModernMono; margin-top: .5em; margin-bottom: .5em;
 .slimd-slide.title .slimd-ufal-footer-license::before { content: "unless otherwise stated"; }
 
 /* Section slide */
-.slimd-slide.section .slimd-ufal-content, .slimd-slide.section .slimd-ufal-footer { background-color: #dddddd80; }
+.slimd-slide.section { background-color: #dddddd80; }
+.slimd-slide.section .slimd-ufal-header { background-color: transparent; }
 .slimd-slide.section .slimd-ufal-content { display: table; table-layout: fixed; text-align: center; }
 .slimd-slide.section .slimd-ufal-content-inner { display: table-cell; vertical-align: middle; position: relative; top: -.5cm; padding: 0 1cm; }
 .slimd-slide.section .slimd-ufal-content-inner h1 {
@@ -122,7 +123,8 @@ code, pre { font-family: LatinModernMono; margin-top: .5em; margin-bottom: .5em;
 }
 
 /* Summary slide */
-.slimd-slide.summary .slimd-ufal-content, .slimd-slide.summary .slimd-ufal-footer { background-color: #dddddd80; }
+.slimd-slide.summary { background-color: #dddddd80; }
+.slimd-slide.summary .slimd-ufal-header { background-color: transparent; }
 .slimd-slide.summary .slimd-ufal-content { display: flex; flex-direction: column;  justify-content: center; }
 .slimd-slide.summary .slimd-ufal-content-inner {
   width: 25cm; height: auto; margin: 0cm 1cm; padding: .2cm; border: .15cm solid #f47b20ff; background-color: white;
