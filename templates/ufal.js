@@ -30,15 +30,14 @@ var slimd_template = (function(currentScript) {
         var innerContent = document.createElement("div"); innerContent.className = "slimd-ufal-content-inner";
         var footer = document.createElement("div"); footer.className = "slimd-ufal-footer";
 
-        // For non-title slide, interpret first H1 as header title
-        var titleSlide = false;
-        for (var i in slimd.slides[slide].classes)
-          titleSlide = titleSlide || slimd.slides[slide].classes[i] == "title";
+        // Is this a title slide or a section slide?
+        var titleSlide = slimd.slides[slide].classes.includes("title");
+        var sectionSlide = slimd.slides[slide].classes.includes("section");
 
         var md = slimd.slides[slide].md, title = "";
         if (titleSlide) {
           title = slimd.title;
-        } else {
+        } else if (!sectionSlide) {
           var match = md.match(/^(?:\s*\n|^)# ([^\n]*)\n?/);
           if (match) {
             title = match[1];

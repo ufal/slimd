@@ -113,6 +113,14 @@ code, pre { font-family: LatinModernMono; margin-top: .5em; margin-bottom: .5em;
 
 .slimd-slide.title .slimd-ufal-footer-license::before { content: "unless otherwise stated"; }
 
+/* Section slide */
+.slimd-slide.section .slimd-ufal-content, .slimd-slide.section .slimd-ufal-footer { background-color: #dddddd80; }
+.slimd-slide.section .slimd-ufal-content { display: table; table-layout: fixed; text-align: center; }
+.slimd-slide.section .slimd-ufal-content-inner { display: table-cell; vertical-align: middle; position: relative; top: -.5cm; padding: 0 1cm; }
+.slimd-slide.section .slimd-ufal-content-inner h1 {
+  margin-top: .5cm; margin-bottom: .5cm; padding: .4cm; background-color: #f47b20ff; color: #fff;
+}
+
 /* Image references */
 .slimd-image-reference {
   font-size: .5em;
