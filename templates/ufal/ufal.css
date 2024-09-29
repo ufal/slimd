@@ -121,6 +121,13 @@ code, pre { font-family: LatinModernMono; margin-top: .5em; margin-bottom: .5em;
   margin-top: .5cm; margin-bottom: .5cm; padding: .4cm; background-color: #f47b20ff; color: #fff;
 }
 
+/* Summary slide */
+.slimd-slide.summary .slimd-ufal-content, .slimd-slide.summary .slimd-ufal-footer { background-color: #dddddd80; }
+.slimd-slide.summary .slimd-ufal-content { display: flex; flex-direction: column;  justify-content: center; }
+.slimd-slide.summary .slimd-ufal-content-inner {
+  width: 25cm; height: auto; margin: 0cm 1cm; padding: .2cm; border: .15cm solid #f47b20ff; background-color: white;
+}
+
 /* Image references */
 .slimd-image-reference {
   font-size: .5em;
