@@ -149,16 +149,16 @@ table tr:nth-of-type(even) {background-color: #ccc8 }
 }
 
 /* Other presentation sizes */
-.slimd-presentation.a4 .slimd-ufal-header { padding: 1cm 1.2cm 1.25cm .55cm; background-image: none }
-.slimd-presentation.a4 .slimd-ufal-content { top: 3.85cm }
-.slimd-presentation.a4 .slimd-ufal-footer { top: 19.3cm }
+.slimd-presentation.a4 .slimd-ufal-header { padding: 1cm 1.2cm 1.25cm .55cm; }
+.slimd-presentation.a4 .slimd-ufal-content { top: 3.25cm; padding: 1.1cm 1.2cm 1.19875cm 1.2cm; }
+.slimd-presentation.a4 .slimd-ufal-footer { top: 19.3cm; height: 1.7cm; }
 .slimd-presentation.a4 .slimd-ufal-footer-title { padding-top: .51cm; padding-bottom: .59cm; }
 .slimd-presentation.a4 .slimd-ufal-slide-number { padding-top: .51cm; }
 .slimd-presentation.a4 .slimd-slide.title .slimd-ufal-footer { top: 17.5cm; height: 3.5cm; background-color: #dddddd80; }
 
-.slimd-presentation.m43 .slimd-ufal-header { padding: 1.5cm 1.2cm 1.75cm .55cm; background-image: none }
-.slimd-presentation.m43 .slimd-ufal-content { top: 5cm }
-.slimd-presentation.m43 .slimd-ufal-footer { top: 20.575cm }
+.slimd-presentation.m43 .slimd-ufal-header { padding: 1.5cm 1.2cm 1.75cm .55cm; }
+.slimd-presentation.m43 .slimd-ufal-content { top: 4.25cm; padding: 1.2cm 1.2cm 1.37375cm 1.2cm; }
+.slimd-presentation.m43 .slimd-ufal-footer { top: 20.575cm; height: 1.7cm; }
 .slimd-presentation.m43 .slimd-ufal-footer-title { padding-top: .51cm; padding-bottom: .59cm; }
 .slimd-presentation.m43 .slimd-ufal-slide-number { padding-top: .51cm; }
 .slimd-presentation.m43 .slimd-slide.title .slimd-ufal-footer { top: 18.775cm; height: 3.5cm; background-color: #dddddd80; }
