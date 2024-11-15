@@ -97,7 +97,7 @@ var slimd = {
       }
       if (style && this.slides.length) {
         // Add fences to styles defined in all but the first slide
-        var fence = " #slimd-slide-" + slideId + " ";
+        var fence = " #slimd-slide-" + slideId.replace(".", "_") + " ";
         style = fence + style.replace(/([},])(?=[^}]*{)/g, "$1" + fence);
       }
 
@@ -143,7 +143,7 @@ var slimd = {
     for (var i = 0; i < this.slides.length; i++) {
       var slide = document.createElement("div");
       slide.className = "slimd-slide";
-      slide.id = "slimd-slide-" + this.slides[i].id;
+      slide.id = "slimd-slide-" + this.slides[i].id.replace(".", "_");
       if (this.slides[i].hasContinuation) slide.className += " has-continuation";
       if (this.slides[i].classes.length) slide.className += " " + this.slides[i].classes.join(" ");
 
