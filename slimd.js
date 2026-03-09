@@ -29,6 +29,7 @@ var slimd = {
       "\\d": "\\,\\textrm{d}",
       "\\accuracy": "\\mathrm{accuracy}",
       "\\precision": "\\mathrm{precision}", "\\recall": "\\mathrm{recall}",
+      "\\T": "\\mathrm{T}",
       "\\TP": "\\mathit{TP}", "\\FP": "\\mathit{FP}", "\\TN": "\\mathit{TN}", "\\FN": "\\mathit{FN}",
       "𝔸": "\\mathbb{A}", "𝔹": "\\mathbb{B}", "𝔻": "\\mathbb{D}", "𝔼": "\\mathbb{E}", "𝔽": "\\mathbb{F}", "𝔾": "\\mathbb{G}", "𝕀": "\\mathbb{I}", "𝕁": "\\mathbb{J}", "𝕂": "\\mathbb{K}", "𝕃": "\\mathbb{L}", "𝕄": "\\mathbb{M}", "𝕆": "\\mathbb{O}", "𝕊": "\\mathbb{S}", "𝕋": "\\mathbb{T}", "𝕌": "\\mathbb{U}", "𝕍": "\\mathbb{V}", "𝕎": "\\mathbb{W}", "𝕏": "\\mathbb{X}", "𝕐": "\\mathbb{Y}",
       "𝓐": "\\mathcal{A}", "𝓑": "\\mathcal{B}", "𝓒": "\\mathcal{C}", "𝓓": "\\mathcal{D}", "𝓔": "\\mathcal{E}", "𝓕": "\\mathcal{F}", "𝓖": "\\mathcal{G}", "𝓗": "\\mathcal{H}", "𝓘": "\\mathcal{I}", "𝓙": "\\mathcal{J}", "𝓚": "\\mathcal{K}", "𝓛": "\\mathcal{L}", "𝓜": "\\mathcal{M}", "𝓝": "\\mathcal{N}", "𝓞": "\\mathcal{O}", "𝓟": "\\mathcal{P}", "𝓠": "\\mathcal{Q}", "𝓡": "\\mathcal{R}", "𝓢": "\\mathcal{S}", "𝓣": "\\mathcal{T}", "𝓤": "\\mathcal{U}", "𝓥": "\\mathcal{V}", "𝓦": "\\mathcal{W}", "𝓧": "\\mathcal{X}", "𝓨": "\\mathcal{Y}", "𝓩": "\\mathcal{Z}",
