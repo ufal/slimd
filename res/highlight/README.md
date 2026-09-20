@@ -1,3 +1,3 @@
-# Highlight.js 11.11.1
+# Highlight.js 11.12.0
 
 https://github.com/highlightjs/highlight.js
