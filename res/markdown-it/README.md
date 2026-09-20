@@ -1,3 +1,3 @@
-# markdown-it 14.1.0
+# markdown-it 15.0.2
 
 https://github.com/markdown-it/markdown-it
