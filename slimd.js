@@ -6,7 +6,7 @@ var slimd = {
     function markdownitkatex(r,e){function n(r,e){var n,t,c=r.posMax,i=!0,o=!0;return n=e>0?r.src.charCodeAt(e-1):-1,t=e+1<=c?r.src.charCodeAt(e+1):-1,(32===n||9===n||t>=48&&t<=57)&&(o=!1),32!==t&&9!==t||(i=!1),{can_open:i,can_close:o}}e=e||{};r.inline.ruler.after("escape","math_inline",function(r,e){var t,c,i,o;if("$"!==r.src[r.pos])return!1;if(!n(r,r.pos).can_open)return e||(r.pending+="$"),r.pos+=1,!0;for(c=t=r.pos+1;-1!==(c=r.src.indexOf("$",c));){for(o=c-1;"\\"===r.src[o];)o-=1;if((c-o)%2==1)break;c+=1}return-1===c?(e||(r.pending+="$"),r.pos=t,!0):c-t==0?(e||(r.pending+="$$"),r.pos=t+1,!0):n(r,c).can_close?(e||((i=r.push("math_inline","math",0)).markup="$",i.content=r.src.slice(t,c)),r.pos=c+1,!0):(e||(r.pending+="$"),r.pos=t,!0)}),r.block.ruler.after("blockquote","math_block",function(r,e,n,t){var c,i,o,s,a,l=!1,u=r.bMarks[e]+r.tShift[e],p=r.eMarks[e];if(u+2>p)return!1;if("$$"!==r.src.slice(u,u+2))return!1;if(u+=2,c=r.src.slice(u,p),t)return!0;for("$$"===c.trim().slice(-2)&&(c=c.trim().slice(0,-2),l=!0),o=e;!(l||++o>=n||(u=r.bMarks[o]+r.tShift[o])<(p=r.eMarks[o])&&r.tShift[o]<r.blkIndent);)"$$"===r.src.slice(u,p).trim().slice(-2)&&(s=r.src.slice(0,p).lastIndexOf("$$"),i=r.src.slice(u,s),l=!0);return r.line=o+1,(a=r.push("math_block","math",0)).block=!0,a.content=(c&&c.trim()?c+"\n":"")+r.getLines(e+1,o,r.tShift[e],!0)+(i&&i.trim()?i:""),a.map=[e,r.line],a.markup="$$",!0},{alt:["paragraph","reference","blockquote","list"]}),r.renderer.rules.math_inline=function(r,n){return function(r){e.displayMode=!1;try{return katex.renderToString(r,e)}catch(n){return e.throwOnError&&console.log(n),r}}(r[n].content)},r.renderer.rules.math_block=function(r,n){return function(r){e.displayMode=!0;try{return"<p>"+katex.renderToString(r,e)+"</p>"}catch(n){return e.throwOnError&&console.log(n),r}}(r[n].content)+"\n"}}
 
     // Init markdown-it with KaTeX and highlight.js
-    this.md=markdownit({
+    var this_md = this.md = markdownit({
       html: true,
       xhtmlOut: false,
       breaks: false,
@@ -14,8 +14,8 @@ var slimd = {
       typographer: false,
       highlight: function (str, lang) {
         if (lang && hljs.getLanguage(lang))
-          return "<pre class='hljs'><code>" + hljs.highlight(lang, str, true).value + "</code></pre>";
-        return "<pre class='hljs'><code>" + this.md.utils.escapeHtml(str) + "</code></pre>";
+          return "<pre class='hljs'><code>" + hljs.highlight(str, {language: lang, ignoreIllegals: true}).value + "</code></pre>";
+        return "<pre class='hljs'><code>" + this_md.utils.escapeHtml(str) + "</code></pre>";
       }
     });
     this.md.use(markdownitkatex, {macros: {
